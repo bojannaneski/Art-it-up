@@ -98,7 +98,11 @@
 	 }
 	 
  header.masthead .device-container .screen img{
+<<<<<<< HEAD
 	 border-radius:1px}@media (min-width:640px){header.masthead{height:100vh;min-height:775px;padding-top:0px;padding-bottom:0}header.masthead .header-content{margin-bottom:100px;text-align:center}header.masthead .header-content h1{font-size:50px}header.masthead .device-container{max-width:325px}
+=======
+	 border-radius:1px}@media (min-width:992px){header.masthead{height:100vh;min-height:775px;padding-top:0px;padding-bottom:0}header.masthead .header-content{margin-bottom:100px;text-align:center}header.masthead .header-content h1{font-size:50px}header.masthead .device-container{max-width:325px}
+>>>>>>> 63b8e24eb0eeeb576a3ff0a0982209376a671f0a
 	 }
 	 
  section.download{
