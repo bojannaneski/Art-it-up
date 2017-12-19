@@ -98,11 +98,13 @@
 	 }
 	 
  header.masthead .device-container .screen img{
-<<<<<<< HEAD
-	 border-radius:1px}@media (min-width:640px){header.masthead{height:100vh;min-height:775px;padding-top:0px;padding-bottom:0}header.masthead .header-content{margin-bottom:100px;text-align:center}header.masthead .header-content h1{font-size:50px}header.masthead .device-container{max-width:325px}
-=======
-	 border-radius:1px}@media (min-width:992px){header.masthead{height:100vh;min-height:775px;padding-top:0px;padding-bottom:0}header.masthead .header-content{margin-bottom:100px;text-align:center}header.masthead .header-content h1{font-size:50px}header.masthead .device-container{max-width:325px}
->>>>>>> 63b8e24eb0eeeb576a3ff0a0982209376a671f0a
+	 border-radius:1px}@media (min-width:640px){
+		 header.masthead{
+			 height:auto;
+			 min-height:775px;
+	 		 padding-top:0px;
+	 	     padding-bottom:0}
+	 header.masthead .header-content{margin-bottom:100px;text-align:center}header.masthead .header-content h1{font-size:50px}header.masthead .device-container{max-width:325px;margin-top:100px;margin-bottom:50px;}
 	 }
 	 
  section.download{
@@ -122,7 +124,7 @@
 	 }
 	 
  section.download .badges .badge-link img{
-	 height:60px}@media (min-width:640px){section.download .badges .badge-link{display:inline-block;margin-bottom:0}}@media (min-width:768px){		  				section.download h2{font-size:70px}
+	 height:60px}@media (min-width:768px){section.download .badges .badge-link{display:inline-block;margin-bottom:0}}@media (min-width:768px){		  				section.download h2{font-size:70px}
 	 }
 	 
  section.features .section-heading{
@@ -165,7 +167,7 @@
 	 }
 	 
  section.cta .cta-content h2{
-	 font-size:50px;max-width:450px;margin-top:0;margin-bottom:25px;color:#fff}@media (min-width:640px){section.cta .cta-content h2{font-size:80px}
+	 font-size:50px;max-width:450px;margin-top:0;margin-bottom:25px;color:#fff}@media (min-width:768px){section.cta .cta-content h2{font-size:80px}
 	 }
 	 
  section.cta .overlay{
