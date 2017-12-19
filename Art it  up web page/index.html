@@ -28,6 +28,9 @@
 
     <!-- Custom styles for this template -->
     <link href="css/new-age.min.css" rel="stylesheet">
+    
+    <!-- PHP code for Contact me form-->
+    <link href="contact.php">
 
   </head>
 
@@ -97,7 +100,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 mx-auto">
-            <h3 class="section-heading">Art It Up is IT Company who is designing and developing softwares,webpages, API's and Databases"</h3>
+            <h3 class="section-heading">Art It Up is IT Company who is designing and developing softwares,webpages, API's and Databases</h3>
             <h4>A Creative company makes full custom softwares for Startups</h4>
             
             <div class="row text-center">
@@ -202,7 +205,6 @@
       </div>
     </section>
 
-
     <!-- Contact -->
     
     <section id="contact">
@@ -215,7 +217,7 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form id="contactForm" name="sentMessage" novalidate>
+            <form id="contactForm" method="post" action="contact.php" role="form" name="sentMessage" novalidate>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
