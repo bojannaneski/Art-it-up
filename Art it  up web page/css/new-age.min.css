@@ -222,13 +222,13 @@
 	 }
 	 
  footer p{
-	 font-size:17px;
+	 font-size:14px;
 	 margin:0}footer ul{margin-bottom:0;
 	 
 	 }
 	 
  footer ul li a{
-	 font-size:15px;color:rgba(255,255,255,.3);
+	 font-size:14px;color:rgba(255,255,255,.3);
 	 color:#2eb82e;
 	 }
  footer ul li a.active,footer ul li a:active,footer ul li a:focus,footer ul li a:hover{
