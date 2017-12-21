@@ -218,18 +218,22 @@
 	 background-color:#d73925
 	 }
  footer{
-	 padding:25px 0;text-align:center;color:rgba(255,255,255,.3);background-color:#222
+	 padding:25px 0;text-align:center;color:rgba(255,255,255,.3);background-color:#222;color:#2eb82e;
 	 }
 	 
  footer p{
-	 font-size:12px;margin:0}footer ul{margin-bottom:0
+	 font-size:17px;
+	 margin:0}footer ul{margin-bottom:0;
+	 
 	 }
 	 
  footer ul li a{
-	 font-size:12px;color:rgba(255,255,255,.3)
+	 font-size:15px;color:rgba(255,255,255,.3);
+	 color:#2eb82e;
 	 }
  footer ul li a.active,footer ul li a:active,footer ul li a:focus,footer ul li a:hover{
-	 text-decoration:none
+	 text-decoration:none;
+	 
 	 }
  .bg-primary{
 	 background:#fdcc52;background:-webkit-linear-gradient(#fdcc52,#fdc539);background:linear-gradient(#fdcc52,#fdc539)
