@@ -33,6 +33,11 @@
 	 font-family:Catamaran,Helvetica,Arial,sans-serif;font-weight:200;letter-spacing:1px
 	 }
 	 
+.mb-5{
+	letter-spacing:2px;
+	text-align:left;
+	}	 
+	 
  p{
 	 font-size:18px;line-height:1.5;margin-bottom:40px
 	 }
