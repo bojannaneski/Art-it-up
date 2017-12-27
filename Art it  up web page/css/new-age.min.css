@@ -61,7 +61,10 @@
 	 }
 	 
  #mainNav .navbar-brand{
-	 color:#fdcc52;font-family:Catamaran,Helvetica,Arial,sans-serif;font-weight:200;letter-spacing:1px
+	 color:#fdcc52;
+	 font-family:Catamaran,Helvetica,Arial,sans-serif;
+	 font-weight:600;
+	 letter-spacing:1px;
 	 }
 	 
  #mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{
