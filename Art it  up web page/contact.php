@@ -1,76 +1,60 @@
 <?php
-/*
- *  CONFIGURE EVERYTHING HERE
- */
-
-// an email address that will be in the From field of the email.
-$from = 'Demo contact form <demo@domain.com>';
-
-// an email address that will receive the email with the output of the form
-$sendTo = 'Demo contact form <demo@domain.com>';
-
-// subject of the email
-$subject = 'New message from contact form';
-
-// form field names and their translations.
-// array variable name => Text to appear in the email
-$fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message'); 
-
-// message that will be displayed when everything is OK :)
-$okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
-
-// If something goes wrong, we will display this message.
-$errorMessage = 'There was an error while submitting the form. Please try again later';
-
-/*
- *  LET'S DO THE SENDING
- */
-
-// if you are not debugging and don't need error reporting, turn this off by error_reporting(0);
-error_reporting(E_ALL & ~E_NOTICE);
 
 
-try
-{
+$msg = '';
+if (array_key_exists('email', $_POST)) {
+    date_default_timezone_set('Etc/UTC');
 
-    if(count($_POST) == 0) throw new \Exception('Form is empty');
-            
-    $emailText = "You have a new message from your contact form\n=============================\n";
+    require '../PHPMailerAutoload.php';
 
-    foreach ($_POST as $key => $value) {
-        // If the field exists in the $fields array, include it in the email 
-        if (isset($fields[$key])) {
-            $emailText .= "$fields[$key]: $value\n";
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->Host = 'localhost';
+    $mail->Port = 25;
+
+    $mail->setFrom($_POST['email']);
+    $mail->addAddress('artitup@artitupteam.com');
+	
+    if ($mail->addReplyTo($_POST['email'], $_POST['name'], $_POST['last_name'])) {
+        $mail->Subject = 'Art It Up mail';
+		
+        $mail->isHTML(false);
+		
+        $mail->Body = <<<EOT
+Email: {$_POST['email']}
+Name: {$_POST['name']}
+Last_Name: {$_POST['last_name']}
+Message: {$_POST['message']}
+EOT;
+
+        if (!$mail->send()) {
+			
+            $msg = 'Sorry, something went wrong. Please try again later.';
+        } else {
+            $msg = 'Message sent! Thanks for contacting us. We will get in touch with you shortly.';
         }
+    } else {
+        $msg = 'Invalid email address, message ignored.';
     }
-
-    // All the neccessary headers for the email.
-    $headers = array('Content-Type: text/plain; charset="UTF-8";',
-        'From: ' . $from,
-        'Reply-To: ' . $from,
-        'Return-Path: ' . $from,
-    );
-    
-    // Send email
-    mail($sendTo, $subject, $emailText, implode("\n", $headers));
-
-    $responseArray = array('type' => 'success', 'message' => $okMessage);
 }
-catch (\Exception $e)
-{
-    $responseArray = array('type' => 'danger', 'message' => $errorMessage);
-}
-
-
-// if requested by AJAX request return JSON response
-if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-    $encoded = json_encode($responseArray);
-
-    header('Content-Type: application/json');
-
-    echo $encoded;
-}
-// else just display the message
-else {
-    echo $responseArray['message'];
-}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact form</title>
+</head>
+<body>
+<h1>Contact us</h1>
+<?php if (!empty($msg)) {
+    echo "<h2>$msg</h2>";
+} ?>
+<form method="POST">
+    <label for="name">Name: <input type="text" name="name" id="name"></label><br>
+    <label for="last_name">Last Name: <input type="text" name="last_name" id="last_name"></label><br>
+    <label for="email">Email address: <input type="email" name="email" id="email"></label><br>
+    <label for="message">Message: <textarea name="message" id="message" rows="8" cols="20"></textarea></label><br>
+    <input type="submit" value="Send">
+</form>
+</body>
+</html>
