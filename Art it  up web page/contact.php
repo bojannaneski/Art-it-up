@@ -1,5 +1,47 @@
 <?php
 
+// define variables and set to empty values
+$name_error = $last_name_error = $email_error = $message_error = "";
+$name = $last_name = $email = $message  = $success = "";
+
+//  Validation
+if (empty($_POST["name"])) {
+    $name_error = "Your Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+	// check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $name_error = "Only letters and white space allowed"; 
+    }
+  }
+  
+if (empty($_POST["last_name"])) {
+    $last_name_error = "Your Last Name is required";
+  } else {
+    $last_name = test_input($_POST["last_name"]);
+	// check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $last_name_error = "Only letters and white space allowed"; 
+    }
+  }
+  
+  if (empty($_POST["email"])) {
+    $email_error = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $email_error = "Invalid email format"; 
+    }
+  }
+  
+  if (empty($_POST["message"])) {
+    $message = "Write some message";
+  } else {
+    $message = test_input($_POST["message"]);
+  }
+
+
 
 $msg = '';
 if (array_key_exists('email', $_POST)) {
